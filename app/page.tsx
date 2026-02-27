@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { products, categories, formatPrice } from "@/data/products";
+import HeroSlider from "@/components/ui/HeroSlider";
 
 export default function HomePage() {
   const featuredProducts = products.slice(0, 3);
@@ -7,37 +8,27 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="min-h-[90vh] bg-gray-950 text-white flex items-center relative overflow-hidden">
-        {/* Background grid subtle */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
+      <section className="min-h-[90vh] text-white flex items-center relative overflow-hidden">
+        {/* Image de fond (slider) */}
+        <div className="absolute inset-0 z-0">
+          <HeroSlider />
+        </div>
 
+        {/* Contenu */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
           <div className="max-w-3xl">
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-gray-300 mb-8">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               Précommandes ouvertes — Livraison via Afriety
             </div>
-
-            {/* Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
               Travaillez mieux.{" "}
               <span className="text-blue-400">Vivez mieux.</span>
             </h1>
-
-            <p className="text-lg sm:text-xl text-gray-400 max-w-xl leading-relaxed mb-10">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-xl leading-relaxed mb-10">
               Bureaux assis-debout, chaises ergonomiques et accessoires premium
               pour transformer votre espace de travail au Sénégal.
             </p>
-
-            {/* CTAs */}
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/catalogue"
@@ -62,24 +53,22 @@ export default function HomePage() {
                 Nous contacter
               </a>
             </div>
-
-            {/* Stats */}
             <div className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10">
               <div>
                 <div className="text-2xl font-bold text-white">50+</div>
-                <div className="text-sm text-gray-500 mt-0.5">
+                <div className="text-sm text-gray-400 mt-0.5">
                   Clients satisfaits
                 </div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">4</div>
-                <div className="text-sm text-gray-500 mt-0.5">
+                <div className="text-sm text-gray-400 mt-0.5">
                   Gammes de produits
                 </div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-white">~3-4 sem</div>
-                <div className="text-sm text-gray-500 mt-0.5">
+                <div className="text-sm text-gray-400 mt-0.5">
                   Délai de livraison
                 </div>
               </div>
